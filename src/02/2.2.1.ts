@@ -4,7 +4,16 @@
 
 */
 
-export declare function compose(...f: Array<never>): never
+declare function compose<A, B>(
+  g: (x: A) => A,
+  f: (x: B) => A,
+): (x: B) => A
+declare function compose<A, B, C, D>(
+  d: (x: C) => D,
+  f: (x: B) => C,
+  g: (x: A) => B
+): (x: A) => D
+declare function compose(...f: Array<Function>): Function
 
 // tests
 

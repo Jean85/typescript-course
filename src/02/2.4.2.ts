@@ -4,8 +4,24 @@
 
 */
 
-export const isArrayOfNumbers = (x: unknown): unknown => {
-  return false
+function isArrayOf<A extends unknown> (x: Array<unknown>): x is Array<A> {
+  if (x.length == 0) {
+    return true;
+  }
+
+  return x.every(e => typeof e == 'number');
+}
+
+export const isArrayOfNumbers = (x: unknown): x is Array<number> => {
+  if (typeof x != 'object') {
+    return false;
+  }
+
+  if (! Array.isArray(x)) {
+    return false;
+  }
+
+  return isArrayOf<number>(x);
 }
 
 // tests

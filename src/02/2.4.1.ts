@@ -4,4 +4,4 @@
 
 */
 
-export declare function isArray(x: unknown): boolean
+export declare function isArray(x: unknown): x is Array<unknown>

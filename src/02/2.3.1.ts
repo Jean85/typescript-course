@@ -6,3 +6,8 @@
 
 export declare function f(xs: Array<number>): Array<number>
 export declare function g<A>(xs: Array<A>): Array<A>
+
+
+export const isZero = (x: number): x is 0 => {
+  return typeof x === "string"
+}
