@@ -4,15 +4,21 @@
 
 */
 
-export interface Person {
+interface ReadonlyPerson {
+  readonly name: {
+    readonly first: string
+    readonly last: string
+  }
+  readonly interests: ReadonlyArray<string>
+}
+
+export interface Person extends ReadonlyPerson {
   name: {
     first: string
     last: string
   }
   interests: Array<string>
 }
-
-type ReadonlyPerson = Person
 
 // tests
 
