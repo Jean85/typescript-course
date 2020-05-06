@@ -4,11 +4,11 @@
 
 */
 
-export declare function set(
-  k: string,
-  v: unknown,
-  o: unknown
-): unknown
+export declare function set<C>(
+  k: keyof C,
+  v: C[keyof C],
+  o: C
+): C
 
 // tests
 

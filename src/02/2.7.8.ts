@@ -5,7 +5,11 @@
 
 */
 
-export declare function keys<O>(o: O): Array<keyof O>
+type KeyFilter<O> = (k: string) => k is keyof O & string
+
+export function keys<O>(o: O, is: KeyFilter<O>): Array<keyof O> {
+  return Object.keys(o).filter(is);
+}
 
 // tests
 
@@ -22,4 +26,8 @@ const p: Person = {
   additional: true
 } as any
 
-assert.deepEqual(keys(p).sort(), ['age', 'name'])
+function isKeyOfPerson (k: any): k is keyof Person {
+  return k == 'name' || k == 'age';
+}
+
+assert.deepEqual(keys(p, isKeyOfPerson).sort(), ['age', 'name'])

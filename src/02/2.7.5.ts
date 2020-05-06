@@ -15,6 +15,12 @@ export class Iso<S, A> {
     readonly get: (s: S) => A,
     readonly reverseGet: (a: A) => S
   ) {}
+
+  to = this.get
+  unwrap = this.get
+
+  from = this.reverseGet
+  wrap = this.reverseGet
 }
 
 // tests

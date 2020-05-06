@@ -4,7 +4,7 @@
 
 */
 
-export declare function get(key: string, obj: unknown): unknown
+export declare function get<A, B extends keyof A>(key: B, obj: A): A[B]
 
 // tests
 

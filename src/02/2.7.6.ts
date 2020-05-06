@@ -7,9 +7,9 @@
 type Tuple = [number, string, boolean]
 
 // estrarre la prima componente
-type Num = never
+type Num = Tuple[0]
 // estrarre la seconda componente
-type Str = never
+type Str = Tuple[1]
 
 // tests
 
