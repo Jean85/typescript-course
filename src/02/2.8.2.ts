@@ -18,7 +18,7 @@
 
 type Key = 'foo'
 
-type O = never
+type O = {[SomeKey in Key]: number}
 
 // tests
 

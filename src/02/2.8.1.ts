@@ -10,7 +10,7 @@ interface X {
   c: boolean
 }
 
-type AsPredicates<O> = never
+type AsPredicates<O> = {[K in keyof O]: (x: O[K]) => boolean}
 
 // tests
 
